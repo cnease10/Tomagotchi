@@ -4,6 +4,9 @@ dory.createTomo();
 dory.nameIt();
 dory.setHungerInterval();
 dory.setSleepyInterval();
+dory.setBoredInterval();
+dory.setAgeInterval();
+dory.deadTomo();
 });
 
 $('#feed').on('click', () => {
@@ -15,7 +18,7 @@ dory.sleepyTime();
 });
 
 $('#play').on('click', () => {
-//first.createTomo();
+dory.agingTomo();
 });
 
 // const $sleepy = $('#sleepy');
@@ -71,8 +74,44 @@ class Tomo {
 		$sleepy.text(`Sleepiness: ${this.sleepiness}`)
 			
 		}, 3500)
-		
+
 	}
+
+	setBoredInterval() {
+		const $bored = $('#bored');
+
+		const interval = setInterval(() => {
+
+			if (this.boredom == 10) {
+			clearInterval(interval);
+
+			} else {
+				this.boredom++
+			}
+
+		$bored.text(`Boredom: ${this.boredom}`)
+			
+		}, 1500)
+	}
+
+	setAgeInterval() {
+		const $age = $('#age');
+
+		const interval = setInterval(() => {
+
+			if (this.age == 10) {
+			clearInterval(interval);
+
+			} else {
+				this.age++
+			}
+
+		$age.text(`Boredom: ${this.age}`)
+			
+		}, 5000)
+	}
+
+		
 	createTomo() {
 		if (this.age < 6) {
 			let img = $('<img/>'); 
@@ -95,12 +134,16 @@ class Tomo {
 		$('#sleepy').text(`Sleepiness: ${this.sleepiness -= 1}`)
 	}
 	play(){
+		$('#bored').text(`Boredom: ${this.boredom -=1}`)
 
 	}
 	nameIt() {
 		const $name = $('#name').text();
 		$('.tomoContainer').append($name);
 
+	}
+	agingTomo() {
+		$('#age').text(`Age: ${this.age}`)
 	}
 	
 	deadTomo() {
@@ -118,7 +161,8 @@ class Tomo {
 };
 
 
-	
+//animations with jQuery?
+
 
 
 
