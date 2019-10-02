@@ -1,12 +1,14 @@
-//alert('Please enter a name, then hit PLAY BALL button to begin');
+alert('Please enter a name, then hit the Just START Swiming button to begin');
 $('#playGame').on('click', () => {
-dory.createTomo();
 dory.nameIt();
+dory.setAgeInterval();
 dory.setHungerInterval();
 dory.setSleepyInterval();
 dory.setBoredInterval();
-dory.setAgeInterval();
-dory.deadTomo();
+dory.agingTomo();
+
+
+//dory.deadTomo();
 });
 
 $('#feed').on('click', () => {
@@ -18,37 +20,29 @@ dory.sleepyTime();
 });
 
 $('#play').on('click', () => {
-dory.agingTomo();
+dory.play();
 });
 
-// const $sleepy = $('#sleepy');
-// 		const $bored = $('#bored');
-// 		const $age = $('#age');
-
-// 		const interval = 
-
 class Tomo {
-//hunger, sleepiness, boredom, age
+	
+		hunger = 0;
+		sleepiness = 0;
+		boredom = 0;
+		age = 0;
 
-//this.hunger = hunger;
-		//this.sleepiness = sleepiness;
-		//this.boredom = boredom;
-		//this.age = age;
-	constructor() {
-		this.hunger = 0;
-		this.sleepiness = 0;
-		this.boredom = 0;
-		this.age = 0;
-
-	}
 
 	setHungerInterval() {
 		const $hunger = $('#hungry');
 
 		const interval = setInterval(() => {
 
-			if (this.hunger == 10) {
+			if (this.hunger === 10) {
+			alert('Hunger has reached deadly levels! To replay, please refresh the broswer.');
 			clearInterval(interval);
+			//this.boredom = 0;
+			// this.hunger = 0;
+			// this.sleepiness =0;
+			//this.age =0;
 
 			} else {
 				this.hunger++
@@ -56,7 +50,7 @@ class Tomo {
 
 		$hunger.text(`Hunger: ${this.hunger}`)
 			
-		}, 2500)
+		}, 3500)
 		
 	}
 	setSleepyInterval() {
@@ -64,8 +58,13 @@ class Tomo {
 
 		const interval = setInterval(() => {
 
-			if (this.sleepiness == 10) {
+			if (this.sleepiness === 10) {
+			alert('Sleepiness has reached deadly levels! To replay, please refresh the broswer.');
 			clearInterval(interval);
+			// this.boredom = 0;
+			//this.hunger = 0;
+			//this.sleepiness =0;
+			//this.age = 0;
 
 			} else {
 				this.sleepiness++
@@ -73,7 +72,7 @@ class Tomo {
 
 		$sleepy.text(`Sleepiness: ${this.sleepiness}`)
 			
-		}, 3500)
+		}, 4500)
 
 	}
 
@@ -82,8 +81,13 @@ class Tomo {
 
 		const interval = setInterval(() => {
 
-			if (this.boredom == 10) {
+			if (this.boredom === 10) {
+			alert('Boredom has reached deadly levels! To replay, please refresh the broswer.');
 			clearInterval(interval);
+			//this.boredom = 0;
+			//this.hunger = 0;
+			//this.sleepiness =0;
+			//this.age =0;
 
 			} else {
 				this.boredom++
@@ -91,41 +95,58 @@ class Tomo {
 
 		$bored.text(`Boredom: ${this.boredom}`)
 			
-		}, 1500)
+		}, 3000)
 	}
 
 	setAgeInterval() {
-		const $age = $('#age');
 
 		const interval = setInterval(() => {
 
-			if (this.age == 10) {
-			clearInterval(interval);
+		const $age = $('#age');
 
+			if (this.age === 12) {
+				alert('CONGRATULATIONS! You have reached a fully aged Tomagotchi! Please refresh the browser to play again.')
+				clearInterval(interval);
+				// this.boredom = 0;
+				// this.hunger = 0;
+				// this.sleepiness =0;
 			} else {
+				this.getPics();
 				this.age++
 			}
 
-		$age.text(`Boredom: ${this.age}`)
-			
-		}, 5000)
-	}
 
+		$age.text(`Age: ${this.age}`)
+
+			
+		}, 3000)
 		
-	createTomo() {
-		if (this.age < 6) {
-			let img = $('<img/>'); 
-			img.attr('src', 'http://clipartmag.com/image/nemo-and-dory-drawing-7.jpg');
-			img.css('width', '300px');
-			img.css('height, 300px');
-			$('.tomoContainer').append(img);
-		} else if (this.age >= 6) {
-			let img = $('<img/>'); 
+	}
+	// picOne() {
+		getPics() {
+			console.log('hi');
+			 if (this.age == 0) {
+			const img1 = $('<img/>'); 
+			img1.attr('id', 'babyDory');
+			img1.attr('src', 'http://clipartmag.com/image/nemo-and-dory-drawing-7.jpg');
+			img1.css('width', '300px');
+			img1.css('height, 300px');
+			$('.tomoContainer').append(img1);
+
+		} else if (this.age == 6) {
+			$('.tomoContainer').empty();
+			const $name = $('#name').val();
+			const $h1 = $('<h1/>');
+			$h1.text(`${$name} has morphed!`)
+			$('.tomoContainer').append($h1);
+			const img = $('<img/>');
 			img.attr('src', 'https://vignette.wikia.nocookie.net/ideas/images/e/ef/Dory-FN.png/revision/latest/scale-to-width-down/220?cb=20140706202825');
 			$('.tomoContainer').append(img);
 		}
-	
+
 	}
+		
+
 	feed(){
 		$('#hunger').text(`Hunger: ${this.hunger -= 1}`)
 
@@ -134,30 +155,39 @@ class Tomo {
 		$('#sleepy').text(`Sleepiness: ${this.sleepiness -= 1}`)
 	}
 	play(){
-		$('#bored').text(`Boredom: ${this.boredom -=1}`)
+		$('#bored').text(`Boredom: ${this.boredom -= 1}`)
 
 	}
 	nameIt() {
-		const $name = $('#name').text();
-		$('.tomoContainer').append($name);
+		const $name = $('#name').val();
+		const $h2 = $('<h2/>');
+		console.log($name);
+		const $h1 = $('<h1/>');
+		$h1.text(`${$name} is hatching!`);
+		$('.tomoContainer').append($h1);
+		if (this.age == 1) {
+			$h1.text(`${$name} is here!`);
+			$('.tomoContainer').append($h1);
+		}
+
 
 	}
 	agingTomo() {
 		$('#age').text(`Age: ${this.age}`)
 	}
 	
-	deadTomo() {
-		if (this.hunger == 10) {
-			alert('Hunger has reached deadly levels!');
-			$('.tomoContainer').remove();
-		} else if (this.sleepiness == 10) {
-			alert('Sleepiness has reached deadly levels!');
-			$('.tomoContainer').remove();
-		} else if (this.boredom == 10) {
-			alert('Boredom has reached deadly levels!');
-			$('.tomoContainer').remove();
-		}
-	}
+	// deadTomo() {
+	// 	if (this.hunger === 10) {
+	// 		alert('Hunger has reached deadly levels!');
+	// 		$('.tomoContainer').remove();
+	// 	} else if (this.sleepiness === 10) {
+	// 		alert('Sleepiness has reached deadly levels!');
+	// 		$('.tomoContainer').remove();
+	// 	} else if (this.boredom === 10) {
+	// 		alert('Boredom has reached deadly levels!');
+	// 		$('.tomoContainer').remove();
+	// 	}
+	// }
 };
 
 
@@ -167,6 +197,7 @@ class Tomo {
 
 
 const dory = new Tomo ();
+
 console.log(dory);
 
 
