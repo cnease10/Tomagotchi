@@ -2,37 +2,61 @@
 <html>
 <head>
 	<title>Cierra Tomagotchi</title>
-<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<style>
+	::placeholder { /* Firefox, Chrome, Opera */ 
+    color: white;
+    font-size: 25px;
+}
+</style>
 </head>
 
 <body>
+<div id="oceanTop">
+	
+</div>
+
+<div id='flex'>
+
+
+<input id="name" placeholder="Enter name">
 
 <div class="tomoContainer">
 	
 </div>
 
-<input id="name" placeholder="Enter name">
+
 
 <aside class="metrics">
+	<div id="age">Age:</div>
 	<div id="hungry">Hunger:</div>
 	<div id="sleepy">Sleepiness:</div>
 	<div id="bored">Boredom:</div>
-	<div id="age">Age:</div>
+	
 </aside>
 
 <div class="buttons">
+	<div>
 	<button id="playGame" type="button" class="btn btn-success">Just START swimming</button>
-	<button id="feed" type="button" class="btn btn-outline-info">Just keep feeding</button>
-	<button id="lights" type="button" class="btn btn-outline-warning">Just keep sleeping</button>
-	<button id="play" type="button" class="btn btn-outline-success">Just keep playing</button>
-	
+	</div>
+	<div>
+	<button id="feed" type="button" class="btn btn-warning">Just keep feeding</button>
+	</div>
+	<div>
+	<button id="lights" type="button" class="btn btn-info">Just keep sleeping</button>
+	</div>
+	<div>
+	<button id="play" type="button" class="btn btn-light">Just keep playing</button>
+	</div>
+</div>
+
+
 </div>
 
 
@@ -43,6 +67,12 @@
 </body>
 
 <footer>
+	<div id="instructions">
+	To keep your Tomagatchi alive:
+	Please feed it, put it to bed, and play with it before
+	the equivalent scales reach 10.
+	
+</div>
 	
 </footer>
 

@@ -1,16 +1,83 @@
+
+
 body {
-	font-family: 'Orbitron', sans-serif;
+background-size: cover;
+background-image: url("https://images.unsplash.com/photo-1514907283155-ea5f4094c70c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60");
+ /*width:100%;
+ height: 100%;
+*/
 }
-
-
-.tomoContainer {
+#flex {
+	display: flex;
+	justify-content: center;
+	
 	
 }
-.metrics {
+aside {
+	font-family: 'Luckiest Guy', cursive;
+	font-size: 35px;
+	display: flex;
+	justify-content: space-around;
+	
+}
 
+#name {
+	height: 50px;
+	width: 150px;
+	background: rgba(0, 0, 0, 0);
+   	border: none;
+    outline: none;
+}
+
+.tomoContainer {
+	font-family: 'Luckiest Guy', cursive;
+	font-size: 50px;
+	padding: 25px;
+}
+.metrics {
+	color: white;
+	padding: 25px;
 }
 .buttons {
+	font-family: 'Luckiest Guy', cursive;
+	flex-direction: column;
+	padding: 25px;
+	display: flex;
+	justify-content: space-around;
 
 }
+#instructions {
+	color: white;
+	background: #FF7F50;
+	padding: 10px;
+	position: absolute;
+	width: 100%; 
+	bottom:0;
+	display: flex;
+	align-content: flex-end;
+	justify-content: center;
+}
+
+.fishPic{
+    position: relative;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 0%; 
+  }
+
+  to {
+    margin-left: 60%;
+  }
+}
+
+
+
 
 /*Style page*/

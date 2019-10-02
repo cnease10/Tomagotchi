@@ -6,8 +6,8 @@ dory.setHungerInterval();
 dory.setSleepyInterval();
 dory.setBoredInterval();
 dory.agingTomo();
-
-
+// dory.animateex();
+// dory.animateback();
 //dory.deadTomo();
 });
 
@@ -30,6 +30,23 @@ class Tomo {
 		boredom = 0;
 		age = 0;
 
+	nameIt() {
+		const $name = $('#name').val();
+		console.log($name);
+		const $h1 = $('<h1/>');
+		$h1.text(`${$name} here in 3,2,1!`);
+		$h1.css('color', 'white');
+		$('.tomoContainer').append($h1);
+
+		// if (this.age == 1) {
+		// 	const $name = $('#name').val();
+		// 	const $h1 = $('<h1/>');
+		// 	$h1.text(`${$name} is here!`);
+		// 	$('.tomoContainer').append($h1);
+		// }
+
+
+	}
 
 	setHungerInterval() {
 		const $hunger = $('#hungry');
@@ -37,8 +54,9 @@ class Tomo {
 		const interval = setInterval(() => {
 
 			if (this.hunger === 10) {
-			alert('Hunger has reached deadly levels! To replay, please refresh the broswer.');
+			alert('Hunger has reached deadly levels! ');
 			clearInterval(interval);
+			location.reload();
 			//this.boredom = 0;
 			// this.hunger = 0;
 			// this.sleepiness =0;
@@ -59,8 +77,9 @@ class Tomo {
 		const interval = setInterval(() => {
 
 			if (this.sleepiness === 10) {
-			alert('Sleepiness has reached deadly levels! To replay, please refresh the broswer.');
+			alert('Sleepiness has reached deadly levels!');
 			clearInterval(interval);
+			location.reload();
 			// this.boredom = 0;
 			//this.hunger = 0;
 			//this.sleepiness =0;
@@ -82,8 +101,9 @@ class Tomo {
 		const interval = setInterval(() => {
 
 			if (this.boredom === 10) {
-			alert('Boredom has reached deadly levels! To replay, please refresh the broswer.');
+			alert('Boredom has reached deadly levels! ');
 			clearInterval(interval);
+			location.reload();
 			//this.boredom = 0;
 			//this.hunger = 0;
 			//this.sleepiness =0;
@@ -104,9 +124,10 @@ class Tomo {
 
 		const $age = $('#age');
 
-			if (this.age === 12) {
+			if (this.age === 16) {
 				alert('CONGRATULATIONS! You have reached a fully aged Tomagotchi! Please refresh the browser to play again.')
 				clearInterval(interval);
+				location.reload();
 				// this.boredom = 0;
 				// this.hunger = 0;
 				// this.sleepiness =0;
@@ -126,22 +147,33 @@ class Tomo {
 		getPics() {
 			console.log('hi');
 			 if (this.age == 0) {
-			const img1 = $('<img/>'); 
-			img1.attr('id', 'babyDory');
-			img1.attr('src', 'http://clipartmag.com/image/nemo-and-dory-drawing-7.jpg');
-			img1.css('width', '300px');
-			img1.css('height, 300px');
-			$('.tomoContainer').append(img1);
+			const img = $('<img/>'); 
+			img.addClass('fishPic');
+			img.attr('src', 'http://hyveephoto.com/images250_/dori-png-11.png');
+			img.css('width', '200px');
+			img.css('height, 200px');
 
+			
+			 $('.tomoContainer').append(img);
+   			
+   			
 		} else if (this.age == 6) {
 			$('.tomoContainer').empty();
 			const $name = $('#name').val();
 			const $h1 = $('<h1/>');
 			$h1.text(`${$name} has morphed!`)
+			$h1.css('color', 'white')
 			$('.tomoContainer').append($h1);
 			const img = $('<img/>');
-			img.attr('src', 'https://vignette.wikia.nocookie.net/ideas/images/e/ef/Dory-FN.png/revision/latest/scale-to-width-down/220?cb=20140706202825');
+			img.addClass('fishPic');
+
+			img.attr('src', 'https://www.stickpng.com/assets/thumbs/58f37952a4fa116215a9241f.png');
+			img.css('height', '250px');
+			img.css('width', '250px');
+			
+ 
 			$('.tomoContainer').append(img);
+			
 		}
 
 	}
@@ -158,24 +190,13 @@ class Tomo {
 		$('#bored').text(`Boredom: ${this.boredom -= 1}`)
 
 	}
-	nameIt() {
-		const $name = $('#name').val();
-		const $h2 = $('<h2/>');
-		console.log($name);
-		const $h1 = $('<h1/>');
-		$h1.text(`${$name} is hatching!`);
-		$('.tomoContainer').append($h1);
-		if (this.age == 1) {
-			$h1.text(`${$name} is here!`);
-			$('.tomoContainer').append($h1);
-		}
-
-
-	}
 	agingTomo() {
 		$('#age').text(`Age: ${this.age}`)
 	}
 	
+
+
+
 	// deadTomo() {
 	// 	if (this.hunger === 10) {
 	// 		alert('Hunger has reached deadly levels!');
@@ -188,13 +209,12 @@ class Tomo {
 	// 		$('.tomoContainer').remove();
 	// 	}
 	// }
+
+    
 };
 
 
 //animations with jQuery?
-
-
-
 
 const dory = new Tomo ();
 
