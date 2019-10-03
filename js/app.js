@@ -126,7 +126,6 @@ class Tomo {
 		}, 3000)
 		
 	}
-	// picOne() {
 		getPics() {
 			console.log('hi');
 			 if (this.age == 0) {
@@ -135,8 +134,6 @@ class Tomo {
 				img.attr('src', 'http://hyveephoto.com/images250_/dori-png-11.png');
 				img.css('width', '200px');
 				img.css('height, 200px');
-
-			
 			 	$('.tomoContainer').append(img);
    			
    			
@@ -149,13 +146,10 @@ class Tomo {
 				$('.tomoContainer').append($h1);
 				const img = $('<img/>');
 				img.addClass('fishPic');
-
 				img.attr('src', 'https://www.stickpng.com/assets/thumbs/58f37952a4fa116215a9241f.png');
 				img.css('height', '250px');
-				img.css('width', '250px');
-			
- 
-			$('.tomoContainer').append(img);
+				img.css('width', '250px');	
+				$('.tomoContainer').append(img);
 			
 		}
 
